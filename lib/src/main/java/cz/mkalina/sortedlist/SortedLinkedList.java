@@ -3,19 +3,18 @@ package cz.mkalina.sortedlist;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * This is a thin wrapper over LinkedList, which keeps values sorted.
  *
  * @param <T>
  */
-public class SimpleSortedList<T extends Comparable<T>> extends LinkedList<T> {
+public class SortedLinkedList<T extends Comparable<T>> extends LinkedList<T> {
 
-    public SimpleSortedList() {
+    public SortedLinkedList() {
         super();
     }
-    public SimpleSortedList(Collection<T> collection) {
+    public SortedLinkedList(Collection<T> collection) {
         addAll(collection);
     }
 
