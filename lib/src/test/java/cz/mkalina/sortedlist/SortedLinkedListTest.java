@@ -10,12 +10,12 @@ import org.junit.jupiter.params.provider.MethodSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
-public class SortedListTest {
+public class SortedLinkedListTest {
 
     @ParameterizedTest
     @MethodSource("lists")
     public <T extends Comparable<T>> void testGet(List<T> testData) {
-        List<T> sortedList = new SimpleSortedList<>(testData);
+        List<T> sortedList = new SortedLinkedList<>(testData);
         List<T> sortedData = sortData(testData);
         for (int i = 0; i < sortedData.size(); i++) {
             assertEquals(sortedData.get(i), sortedList.get(i));
@@ -24,8 +24,10 @@ public class SortedListTest {
 
     @ParameterizedTest
     @MethodSource("lists")
+//    @SuppressWarnings("all")
     public <T extends Comparable<T>> void testAdd(List<T> testData) {
-        List<T> sortedList = new SimpleSortedList<>();
+        List<T> sortedList = new SortedLinkedList<>();
+        //noinspection UseBulkOperation
         testData.forEach(sortedList::add);
         assertEquals(sortData(testData), sortedList);
     }
@@ -33,7 +35,7 @@ public class SortedListTest {
     @ParameterizedTest
     @MethodSource("lists")
     public <T extends Comparable<T>> void testAddAll(List<T> testData) {
-        List<T> sortedList = new SimpleSortedList<>();
+        List<T> sortedList = new SortedLinkedList<>();
         sortedList.addAll(testData);
         assertEquals(sortData(testData), sortedList);
     }
@@ -41,14 +43,14 @@ public class SortedListTest {
     @ParameterizedTest
     @MethodSource("lists")
     public <T extends Comparable<T>> void testCreate(List<T> testData) {
-        List<T> sortedList = new SimpleSortedList<>(testData);
+        List<T> sortedList = new SortedLinkedList<>(testData);
         assertEquals(sortData(testData), sortedList);
     }
 
     @ParameterizedTest
     @MethodSource("lists")
     public <T extends Comparable<T>> void testSize(List<T> testData) {
-        List<T> sortedList = new SimpleSortedList<>();
+        List<T> sortedList = new SortedLinkedList<>();
         sortedList.addAll(testData);
         assertEquals(testData.size(), sortedList.size());
     }
