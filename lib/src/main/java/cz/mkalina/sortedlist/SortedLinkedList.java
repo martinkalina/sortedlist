@@ -15,7 +15,7 @@ public class SortedLinkedList<T extends Comparable<T>> extends LinkedList<T> {
         super();
     }
     public SortedLinkedList(Collection<T> collection) {
-        addAll(collection);
+        super(collection);
     }
 
     @Override
