@@ -36,17 +36,17 @@ public class SortedLinkedList<T extends Comparable<T>> extends LinkedList<T> {
 
 
     @Override
-    public void add(int index, T element) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public boolean addAll(Collection<? extends T> c) {
         c.forEach(this::add);
         return true;
     }
 
     // following methods does not make sense for list with fixed items order
+
+    @Override
+    public void add(int index, T element) {
+        throw new UnsupportedOperationException();
+    }
 
     @Override
     public void addFirst(T t) {
